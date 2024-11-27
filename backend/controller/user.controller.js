@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const User = require('../models/user.model');
 
 // Controller for user signup
@@ -10,10 +11,19 @@ const signup = async (req, res) => {
             return res.status(400).json({ message: 'Email is Already Registered' });
         }
 
-        const newUser = new User({ username, email, password });
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const newUser = new User({ username, email, password: hashedPassword });
         await newUser.save();
 
-        return res.status(201).json(newUser);
+        return res.status(201).json({
+            message: 'User Registered Successfully',
+            user:{
+                id: newUser.id,
+                username: newUser.username,
+                email: newUser.email
+            }
+        });
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: 'Internal Server Error' });
