@@ -58,4 +58,4 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/images/authentication/loginpage.png
+    - assets/images/authentication/loginImage.png
