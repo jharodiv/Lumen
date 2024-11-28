@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:frontend/maharani/screens/authScreens/loginScreen.dart';
+import 'package:frontend/maharani/screens/authScreens/login_screen.dart';
 import 'package:frontend/main.dart';
 
 void main() {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/maharani/screens/authScreens/loginScreen.dart';
+import 'package:frontend/maharani/screens/authScreens/login_screen.dart';
 
 void main() {
   runApp(MaterialApp(
