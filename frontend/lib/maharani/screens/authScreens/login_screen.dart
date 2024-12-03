@@ -2,22 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:frontend/maharani/widgets/authentication/login_form.dart';
 import 'package:frontend/maharani/widgets/authentication/login_image.dart';
 
-
-class Loginscreen extends StatelessWidget {
-  const Loginscreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start, // Aligns children at the top
-          children: [
-            const SizedBox(height: 40), 
-            const Loginimage(),
-            const LoginForm(), 
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const LoginImage(), // Displays the login image
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: const LoginForm(), // Displays the login form
+              ),
+            ],
+          ),
         ),
       ),
     );
