@@ -8,48 +8,45 @@ class LoginImage extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    // Limit the height to a fraction of the screen height
-    double imageHeight = screenHeight * 0.4;
+    double imageHeight = screenHeight * 0.5;
 
     return SizedBox(
       width: screenWidth,
-      height: imageHeight, // Use a fraction of the screen height
+      height: imageHeight,
       child: Stack(
         alignment: Alignment.center,
         children: [
-          // First Circle (behind the image)
           Positioned(
-            top: 20,
-            left: -(screenWidth * 0.15),
+            top: 40,
+            left: -(screenWidth * 0.1),
             child: Container(
-              width: screenWidth * 0.5,
-              height: screenWidth * 0.5,
+              width: screenWidth * 0.4,
+              height: screenWidth * 0.4,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: const Color(0xFFE7E3C3),
               ),
             ),
           ),
-          // Second Circle (behind the image)
           Positioned(
-            top: 0,
-            right: -(screenWidth * 0.15),
+            top: 10,
+            right: -(screenWidth * 0.1),
             child: Container(
-              width: screenWidth * 0.4,
-              height: screenWidth * 0.4,
+              width: screenWidth * 0.35,
+              height: screenWidth * 0.35,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.green.withOpacity(0.3),
               ),
             ),
           ),
-          // Image
+          // Image - Made even larger
           Positioned(
-            top: 50,
+            top: 50, 
             child: Image.asset(
               'assets/images/authentication/loginImage.png',
-              width: screenWidth * 0.7, // Dynamically sized
-              height: imageHeight * 0.6, // Dynamically sized
+              width: screenWidth * 0.95,  
+              height: imageHeight * 0.9,  
               fit: BoxFit.contain,
             ),
           ),
