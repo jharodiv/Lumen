@@ -17,7 +17,7 @@ class LoginImage extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           Positioned(
-            top: 40,
+            top: 10,
             left: -(screenWidth * 0.1),
             child: Container(
               width: screenWidth * 0.4,
@@ -29,25 +29,24 @@ class LoginImage extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 10,
+            top: 290,
             right: -(screenWidth * 0.1),
             child: Container(
               width: screenWidth * 0.35,
               height: screenWidth * 0.35,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.green.withOpacity(0.3),
+                color: Colors.greenAccent,
               ),
             ),
           ),
-          // Image - Made even larger
           Positioned(
-            top: 50, 
+            top: 5,
             child: Image.asset(
               'assets/images/authentication/loginImage.png',
-              width: screenWidth * 0.95,  
-              height: imageHeight * 0.9,  
-              fit: BoxFit.contain,
+              width: screenWidth * 1.1,
+              height: imageHeight,
+              fit: BoxFit.cover,
             ),
           ),
         ],
