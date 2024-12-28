@@ -13,11 +13,11 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const AuthenticationImage(), // Displays the login image
-              const SizedBox(height: 20),
+              const AuthenticationImage(),
+              const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: const LoginForm(), // Displays the login form
+                child: const LoginForm(),
               ),
             ],
           ),

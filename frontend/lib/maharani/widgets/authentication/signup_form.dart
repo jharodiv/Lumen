@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/maharani/screens/authScreens/login_screen.dart';
+
 class SignupForm extends StatelessWidget {
   const SignupForm({super.key});
 
@@ -14,7 +16,7 @@ class SignupForm extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
-                  'Login',
+                  'Sign Up',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
@@ -40,7 +42,8 @@ class SignupForm extends StatelessWidget {
                         decoration: InputDecoration(
                           labelText: 'Password',
                           border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black, width: 3.0),
+                            borderSide:
+                                BorderSide(color: Colors.black, width: 3.0),
                           ),
                         ),
                       ),
@@ -69,14 +72,16 @@ class SignupForm extends StatelessWidget {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 57, 153, 107),
-                    padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-                    textStyle: const TextStyle(fontSize:20),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 50),
+                    textStyle: const TextStyle(fontSize: 20),
                   ),
-                  child: const Text('Login',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 3),
@@ -84,22 +89,26 @@ class SignupForm extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      "Don't have an account?",
-                    style: TextStyle(
-                      fontSize:13,
-                      fontWeight: FontWeight.w400,
-                    ),
+                      "Already have an account?",
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                     TextButton(
-                      onPressed: (){
-                        //GoToSignUpScreen
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()),
+                        );
                       },
                       child: const Text(
-                        'Sign Up',
+                        'Login',
                         style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,
-                          fontSize:13,
+                          fontSize: 13,
                         ),
                       ),
                     )

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/maharani/screens/authScreens/signup_screen.dart';
+
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
 
@@ -40,7 +42,8 @@ class LoginForm extends StatelessWidget {
                         decoration: InputDecoration(
                           labelText: 'Password',
                           border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black, width: 3.0),
+                            borderSide:
+                                BorderSide(color: Colors.black, width: 3.0),
                           ),
                         ),
                       ),
@@ -69,14 +72,16 @@ class LoginForm extends StatelessWidget {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 57, 153, 107),
-                    padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-                    textStyle: const TextStyle(fontSize:20),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 50),
+                    textStyle: const TextStyle(fontSize: 20),
                   ),
-                  child: const Text('Login',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 3),
@@ -85,21 +90,25 @@ class LoginForm extends StatelessWidget {
                   children: [
                     const Text(
                       "Don't have an account?",
-                    style: TextStyle(
-                      fontSize:13,
-                      fontWeight: FontWeight.w400,
-                    ),
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                     TextButton(
-                      onPressed: (){
-                        //GoToSignUpScreen
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignupScreen()),
+                        );
                       },
                       child: const Text(
                         'Sign Up',
                         style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,
-                          fontSize:13,
+                          fontSize: 13,
                         ),
                       ),
                     )
