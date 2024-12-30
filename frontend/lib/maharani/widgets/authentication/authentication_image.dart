@@ -8,7 +8,7 @@ class AuthenticationImage extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    double imageHeight = screenHeight * 0.5;
+    double imageHeight = screenHeight * 0.4;
 
     return SizedBox(
       width: screenWidth,
@@ -29,7 +29,7 @@ class AuthenticationImage extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 290,
+            top: 220,
             right: -(screenWidth * 0.1),
             child: Container(
               width: screenWidth * 0.35,

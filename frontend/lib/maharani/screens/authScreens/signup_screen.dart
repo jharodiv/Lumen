@@ -13,12 +13,9 @@ class SignupScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const AuthenticationImage(), // Displays the login image
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: const SignupForm(), // Displays the login form
-              ),
+              const AuthenticationImage(),
+              const SizedBox(height: 1.0),
+              const SignupForm(),
             ],
           ),
         ),
