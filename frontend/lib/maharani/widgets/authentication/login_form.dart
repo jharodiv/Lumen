@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/maharani/screens/homeScreens/homepage.dart';
+import 'package:frontend/service/authapi.dart';
 import 'package:frontend/maharani/screens/authScreens/signup_screen.dart';
 
 class LoginForm extends StatelessWidget {
@@ -6,6 +8,9 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
     return Center(
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.8,
@@ -25,6 +30,7 @@ class LoginForm extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 TextField(
+                  controller: emailController,
                   decoration: InputDecoration(
                     labelText: 'Email',
                     border: OutlineInputBorder(
@@ -39,6 +45,7 @@ class LoginForm extends StatelessWidget {
                     children: [
                       TextField(
                         obscureText: true,
+                        controller: passwordController,
                         decoration: InputDecoration(
                           labelText: 'Password',
                           border: OutlineInputBorder(
@@ -69,7 +76,24 @@ class LoginForm extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    final email = emailController.text.trim();
+                    final password = passwordController.text.trim();
+
+                    try {
+                      final response = await AuthAPI.login(email, password);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(response['message'])),
+                      );
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => Homepage()),
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context)
+                          .showSnackBar(SnackBar(content: Text(e.toString())));
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 57, 153, 107),
                     padding: const EdgeInsets.symmetric(
