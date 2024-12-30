@@ -30,6 +30,7 @@ class SignupForm extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 TextField(
+                  controller: usernameController,
                   decoration: InputDecoration(
                     labelText: 'Username',
                     border: OutlineInputBorder(
@@ -39,6 +40,7 @@ class SignupForm extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 TextField(
+                  controller: emailController,
                   decoration: InputDecoration(
                     labelText: 'Email',
                     border: OutlineInputBorder(
@@ -52,6 +54,7 @@ class SignupForm extends StatelessWidget {
                   child: Stack(
                     children: [
                       TextField(
+                        controller: passwordController,
                         obscureText: true,
                         decoration: InputDecoration(
                           labelText: 'Password',
@@ -83,10 +86,19 @@ class SignupForm extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
+                  //SignUpButton
                   onPressed: () async {
                     final username = usernameController.text.trim();
                     final email = emailController.text.trim();
                     final password = passwordController.text.trim();
+
+                    if (username.isEmpty || email.isEmpty || password.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Please fill all fields')),
+                      );
+
+                      return;
+                    }
 
                     try {
                       final response =
@@ -94,9 +106,10 @@ class SignupForm extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text(response['message'])),
                       );
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
                       );
                     } catch (e) {
                       ScaffoldMessenger.of(context).showSnackBar(
