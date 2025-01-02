@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/maharani/screens/authScreens/forgotpasswordscreen.dart';
 import 'package:frontend/maharani/screens/homeScreens/homepage.dart';
 import 'package:frontend/service/authapi.dart';
 import 'package:frontend/maharani/screens/authScreens/signup_screen.dart';
@@ -59,7 +60,11 @@ class LoginForm extends StatelessWidget {
                         right: 0,
                         child: TextButton(
                           onPressed: () {
-                            //GoToNextScreen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ForgotPasswordScreen()),
+                            );
                           },
                           child: const Text(
                             'Forgot Password?',

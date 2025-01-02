@@ -64,23 +64,6 @@ class SignupForm extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Positioned(
-                        bottom: -13,
-                        right: 0,
-                        child: TextButton(
-                          onPressed: () {
-                            //GoToNextScreen
-                          },
-                          child: const Text(
-                            'Forgot Password?',
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ),

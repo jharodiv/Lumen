@@ -62,7 +62,7 @@ class Forgotpasswordconfirmation extends StatelessWidget {
               TextButton(
                 onPressed: () {},
                 child: const Text(
-                  'Login',
+                  'Sign Up',
                   style: TextStyle(
                     color: Color(0xFF39996B),
                     fontWeight: FontWeight.bold,
