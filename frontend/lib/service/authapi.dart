@@ -65,4 +65,23 @@ class AuthAPI {
       throw Exception('Error: $e');
     }
   }
+
+  //resetpasswordAPI
+  static Future<Map<String, dynamic>> resetPassword(
+      String token, String newPassword) async {
+    final url = Uri.parse('$baseUrl/reset-password');
+    final headers = {'Content-Type': 'application/json'};
+    final body = jsonEncode({'token': token, 'newPassword': newPassword});
+
+    try {
+      final response = await http.post(url, headers: headers, body: body);
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        throw Exception(jsonDecode(response.body)['message']);
+      }
+    } catch (e) {
+      throw Exception('Password reset failed: $e');
+    }
+  }
 }

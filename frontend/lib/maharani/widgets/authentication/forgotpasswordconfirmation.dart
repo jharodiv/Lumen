@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/maharani/screens/authScreens/newpassword.dart';
 import 'package:frontend/service/authapi.dart';
 
 class Forgotpasswordconfirmation extends StatelessWidget {
@@ -42,7 +43,7 @@ class Forgotpasswordconfirmation extends StatelessWidget {
 
                 if (email.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      content: Text('Pleased enter your email address')));
+                      content: Text('Please enter your email address')));
                   return;
                 }
 
@@ -50,6 +51,15 @@ class Forgotpasswordconfirmation extends StatelessWidget {
                   final response = await AuthAPI.forgotpassword(email);
                   ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(response['message'])));
+
+                  // Navigate to the Newpassword screen with the reset token
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          Newpassword(resetToken: response['resetToken']),
+                    ),
+                  );
                 } catch (e) {
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text(e.toString())));

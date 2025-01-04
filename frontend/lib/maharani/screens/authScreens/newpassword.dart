@@ -3,7 +3,9 @@ import 'package:frontend/maharani/widgets/authentication/newpasswordform.dart';
 import 'package:frontend/maharani/widgets/maharaniheader.dart';
 
 class Newpassword extends StatelessWidget {
-  const Newpassword({super.key});
+  final String resetToken; // Add this field to pass the token
+
+  const Newpassword({super.key, required this.resetToken});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +17,8 @@ class Newpassword extends StatelessWidget {
 
             return SingleChildScrollView(
               physics: isOverflowing
-                  ? AlwaysScrollableScrollPhysics()
-                  : NeverScrollableScrollPhysics(),
+                  ? const AlwaysScrollableScrollPhysics()
+                  : const NeverScrollableScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -25,7 +27,7 @@ class Newpassword extends StatelessWidget {
                   const SizedBox(height: 70),
                   Container(
                     padding: const EdgeInsets.all(16),
-                    child: const Newpasswordform(),
+                    child: Newpasswordform(resetToken: resetToken),
                   ),
                 ],
               ),
