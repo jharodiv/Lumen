@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/service/authapi.dart';
 
 class Forgotpasswordconfirmation extends StatelessWidget {
   const Forgotpasswordconfirmation({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _emailController = TextEditingController();
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -21,6 +24,7 @@ class Forgotpasswordconfirmation extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           TextField(
+            controller: _emailController,
             decoration: InputDecoration(
               labelText: 'Email',
               border: OutlineInputBorder(
@@ -33,7 +37,24 @@ class Forgotpasswordconfirmation extends StatelessWidget {
           SizedBox(
             width: 150,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                final email = _emailController.text.trim();
+
+                if (email.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text('Pleased enter your email address')));
+                  return;
+                }
+
+                try {
+                  final response = await AuthAPI.forgotpassword(email);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(response['message'])));
+                } catch (e) {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text(e.toString())));
+                }
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 57, 153, 107),
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
