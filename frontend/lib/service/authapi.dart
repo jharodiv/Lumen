@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:frontend/maharani/screens/authScreens/forgotpasswordscreen.dart';
 import 'package:http/http.dart' as http;
 
 class AuthAPI {
