@@ -105,7 +105,7 @@ class Joinstartup extends StatelessWidget {
                         decoration: InputDecoration(
                           fillColor: Colors.grey[300],
                           filled: true,
-                          counterText: "",
+                          counterText: "", //ForCommit
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8.0),
                           ),
