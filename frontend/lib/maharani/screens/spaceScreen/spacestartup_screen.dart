@@ -10,16 +10,15 @@ class SpacestartupScreen extends StatelessWidget {
     return const Scaffold(
       body: Stack(
         children: [
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                Joinstartup(),
-              ],
-            ),
-          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Createstartup(),
+          ),
+          Positioned(
+            top: 65,
+            left: 0,
+            right: 0,
+            child: Joinstartup(),
           ),
         ],
       ),
