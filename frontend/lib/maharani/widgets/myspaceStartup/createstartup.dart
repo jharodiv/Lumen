@@ -12,12 +12,12 @@ class Createstartup extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.2, // 20% of screen height
-            color: Color(0xFF2DAE88),
+            color: const Color(0xFF2DAE88),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "Don't have a code?",
                   style: TextStyle(
                     color: Colors.white,
@@ -25,8 +25,8 @@ class Createstartup extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 2.0),
-                Text(
+                const SizedBox(height: 2.0),
+                const Text(
                   "We'll give you a code to share",
                   style: TextStyle(
                     color: Colors.white,
@@ -34,16 +34,16 @@ class Createstartup extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFE5DD9F),
+                      backgroundColor: const Color(0xFFE5DD9F),
                       foregroundColor: Colors.black,
                     ),
-                    child: Text(
+                    child: const Text(
                       'Create a Space',
                       style: TextStyle(
                           fontSize: 16.0, fontWeight: FontWeight.bold),
@@ -62,11 +62,11 @@ class Createstartup extends StatelessWidget {
               color: Colors.grey[300],
               shape: BoxShape.circle,
               border: Border.all(
-                color: Color(0xFF2DAE88),
+                color: const Color(0xFF2DAE88),
                 width: 3.0,
               ),
             ),
-            child: Center(
+            child: const Center(
               child: Text(
                 'OR',
                 style: TextStyle(

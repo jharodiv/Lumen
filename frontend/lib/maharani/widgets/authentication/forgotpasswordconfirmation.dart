@@ -7,7 +7,7 @@ class Forgotpasswordconfirmation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _emailController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -25,7 +25,7 @@ class Forgotpasswordconfirmation extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           TextField(
-            controller: _emailController,
+            controller: emailController,
             decoration: InputDecoration(
               labelText: 'Email',
               border: OutlineInputBorder(
@@ -39,7 +39,7 @@ class Forgotpasswordconfirmation extends StatelessWidget {
             width: 150,
             child: ElevatedButton(
               onPressed: () async {
-                final email = _emailController.text.trim();
+                final email = emailController.text.trim();
 
                 if (email.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(

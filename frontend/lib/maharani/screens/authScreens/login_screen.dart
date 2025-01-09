@@ -7,17 +7,17 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const AuthenticationImage(),
-              const SizedBox(height: 20),
+               AuthenticationImage(),
+               SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: const LoginForm(),
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: LoginForm(),
               ),
             ],
           ),

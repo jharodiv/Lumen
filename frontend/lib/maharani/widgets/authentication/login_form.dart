@@ -32,7 +32,7 @@ class LoginForm extends StatelessWidget {
                 const SizedBox(height: 20),
                 TextField(
                   controller: emailController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Email',
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black, width: 3.0),
@@ -47,7 +47,7 @@ class LoginForm extends StatelessWidget {
                       TextField(
                         obscureText: true,
                         controller: passwordController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Password',
                           border: OutlineInputBorder(
                             borderSide:
@@ -63,7 +63,7 @@ class LoginForm extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ForgotPasswordScreen()),
+                                  builder: (context) => const ForgotPasswordScreen()),
                             );
                           },
                           child: const Text(
@@ -92,7 +92,7 @@ class LoginForm extends StatelessWidget {
                       );
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => Homepage()),
+                        MaterialPageRoute(builder: (context) => const Homepage()),
                       );
                     } catch (e) {
                       ScaffoldMessenger.of(context)

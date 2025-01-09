@@ -31,7 +31,7 @@ class SignupForm extends StatelessWidget {
                 const SizedBox(height: 20),
                 TextField(
                   controller: usernameController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Username',
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black, width: 3.0),
@@ -41,7 +41,7 @@ class SignupForm extends StatelessWidget {
                 const SizedBox(height: 20),
                 TextField(
                   controller: emailController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Email',
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black, width: 3.0),
@@ -56,7 +56,7 @@ class SignupForm extends StatelessWidget {
                       TextField(
                         controller: passwordController,
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Password',
                           border: OutlineInputBorder(
                             borderSide:
@@ -130,7 +130,7 @@ class SignupForm extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LoginScreen()),
+                              builder: (context) => const LoginScreen()),
                         );
                       },
                       child: const Text(

@@ -7,15 +7,15 @@ class SignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const AuthenticationImage(),
-              const SizedBox(height: 1.0),
-              const SignupForm(),
+               AuthenticationImage(),
+               SizedBox(height: 1.0),
+               SignupForm(),
             ],
           ),
         ),

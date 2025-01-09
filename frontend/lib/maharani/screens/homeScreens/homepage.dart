@@ -7,8 +7,8 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
-      body: Center(
-        child: const Text(
+      body: const Center(
+        child: Text(
           "Home Screen",
           style: TextStyle(fontSize: 24),
         ),

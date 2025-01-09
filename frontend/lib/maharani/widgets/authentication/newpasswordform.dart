@@ -8,13 +8,13 @@ class Newpasswordform extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _passwordController = TextEditingController();
-    final TextEditingController _confirmPasswordController =
+    final TextEditingController passwordController = TextEditingController();
+    final TextEditingController confirmPasswordController =
         TextEditingController();
 
-    void _handleResetPassword() async {
-      final newPassword = _passwordController.text.trim();
-      final confirmPassword = _confirmPasswordController.text.trim();
+    void handleResetPassword() async {
+      final newPassword = passwordController.text.trim();
+      final confirmPassword = confirmPasswordController.text.trim();
 
       if (newPassword.isEmpty || confirmPassword.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -65,7 +65,7 @@ class Newpasswordform extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           TextField(
-            controller: _passwordController,
+            controller: passwordController,
             decoration: InputDecoration(
               labelText: 'New Password',
               border: OutlineInputBorder(
@@ -76,7 +76,7 @@ class Newpasswordform extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           TextField(
-            controller: _confirmPasswordController,
+            controller: confirmPasswordController,
             decoration: InputDecoration(
               labelText: 'Confirm Password',
               border: OutlineInputBorder(
@@ -89,7 +89,7 @@ class Newpasswordform extends StatelessWidget {
           SizedBox(
             width: 150,
             child: ElevatedButton(
-              onPressed: _handleResetPassword,
+              onPressed: handleResetPassword,
               style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF39996B),
                   padding: const EdgeInsets.symmetric(vertical: 16.0),

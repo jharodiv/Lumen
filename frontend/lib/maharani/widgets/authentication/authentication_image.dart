@@ -22,9 +22,9 @@ class AuthenticationImage extends StatelessWidget {
             child: Container(
               width: screenWidth * 0.4,
               height: screenWidth * 0.4,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xFFE7E3C3),
+                color: Color(0xFFE7E3C3),
               ),
             ),
           ),
@@ -34,7 +34,7 @@ class AuthenticationImage extends StatelessWidget {
             child: Container(
               width: screenWidth * 0.35,
               height: screenWidth * 0.35,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.greenAccent,
               ),
