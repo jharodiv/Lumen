@@ -8,7 +8,7 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: SafeArea(//ForDailyCommit
         child: LayoutBuilder(
           builder: (context, constraints) {
             bool isOverflowing = constraints.maxHeight < 600;
