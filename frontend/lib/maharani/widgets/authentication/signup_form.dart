@@ -10,6 +10,7 @@ class SignupForm extends StatelessWidget {
     final TextEditingController usernameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+    bool obscureText = true;
 
     return Center(
       child: SizedBox(
@@ -49,27 +50,35 @@ class SignupForm extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Container(
-                  height: 80,
-                  child: Stack(
-                    children: [
-                      TextField(
-                        controller: passwordController,
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          labelText: 'Password',
-                          border: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.black, width: 3.0),
+                StatefulBuilder(
+                  builder: (context, setState) {
+                    return TextField(
+                      controller: passwordController,
+                      obscureText: obscureText,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        border: const OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.black, width: 3.0),
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            obscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility,
                           ),
+                          onPressed: () {
+                            setState(() {
+                              obscureText = !obscureText;
+                            });
+                          },
                         ),
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  //SignUpButton
                   onPressed: () async {
                     final username = usernameController.text.trim();
                     final email = emailController.text.trim();
@@ -79,7 +88,6 @@ class SignupForm extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Please fill all fields')),
                       );
-
                       return;
                     }
 
