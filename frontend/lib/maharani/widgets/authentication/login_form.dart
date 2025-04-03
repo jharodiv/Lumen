@@ -40,7 +40,7 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Container(
+                SizedBox(
                   height: 80,
                   child: Stack(
                     children: [
@@ -129,7 +129,7 @@ class LoginForm extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignupScreen()),
+                              builder: (context) => const SignupScreen()),
                         );
                       },
                       child: const Text(

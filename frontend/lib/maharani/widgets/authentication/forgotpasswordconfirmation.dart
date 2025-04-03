@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/maharani/screens/authScreens/newpassword.dart';
+import 'package:frontend/maharani/screens/authScreens/signup_screen.dart';
 import 'package:frontend/service/authapi.dart';
 
 class Forgotpasswordconfirmation extends StatelessWidget {
@@ -91,7 +92,13 @@ class Forgotpasswordconfirmation extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignupScreen()),
+                  );
+                },
                 child: const Text(
                   'Sign Up',
                   style: TextStyle(

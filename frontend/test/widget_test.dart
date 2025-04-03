@@ -4,7 +4,7 @@ import 'package:frontend/maharani/screens/authScreens/login_screen.dart';
 
 void main() {
   testWidgets('Login screen smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(MaterialApp(home: LoginScreen()));
+    await tester.pumpWidget(const MaterialApp(home: LoginScreen()));
 
     expect(find.text('Login'), findsOneWidget);
     expect(find.byType(TextField), findsWidgets);
