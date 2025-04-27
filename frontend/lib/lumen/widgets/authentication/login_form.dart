@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/maharani/screens/authScreens/login_screen.dart';
+import 'package:frontend/lumen/screens/authScreens/forgotpasswordscreen.dart';
+import 'package:frontend/lumen/screens/homeScreens/homepage.dart';
 import 'package:frontend/service/authapi.dart';
+import 'package:frontend/lumen/screens/authScreens/signup_screen.dart';
 
-class SignupForm extends StatelessWidget {
-  const SignupForm({super.key});
+class LoginForm extends StatelessWidget {
+  const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController usernameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    bool obscureText = true;
 
     return Center(
       child: SizedBox(
@@ -22,21 +22,11 @@ class SignupForm extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
-                  'Sign Up',
+                  'Login',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
                     fontFamily: 'Inter',
-                  ),
-                ),
-                const SizedBox(height: 20),
-                TextField(
-                  controller: usernameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Username',
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 3.0),
-                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -50,62 +40,63 @@ class SignupForm extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                StatefulBuilder(
-                  builder: (context, setState) {
-                    return TextField(
-                      controller: passwordController,
-                      obscureText: obscureText,
-                      decoration: InputDecoration(
-                        labelText: 'Password',
-                        border: const OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black, width: 3.0),
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            obscureText
-                                ? Icons.visibility_off
-                                : Icons.visibility,
+                SizedBox(
+                  height: 80,
+                  child: Stack(
+                    children: [
+                      TextField(
+                        obscureText: true,
+                        controller: passwordController,
+                        decoration: const InputDecoration(
+                          labelText: 'Password',
+                          border: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.black, width: 3.0),
                           ),
-                          onPressed: () {
-                            setState(() {
-                              obscureText = !obscureText;
-                            });
-                          },
                         ),
                       ),
-                    );
-                  },
+                      Positioned(
+                        bottom: -13,
+                        right: 0,
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ForgotPasswordScreen()),
+                            );
+                          },
+                          child: const Text(
+                            'Forgot Password?',
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () async {
-                    final username = usernameController.text.trim();
                     final email = emailController.text.trim();
                     final password = passwordController.text.trim();
 
-                    if (username.isEmpty || email.isEmpty || password.isEmpty) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Please fill all fields')),
-                      );
-                      return;
-                    }
-
                     try {
-                      final response =
-                          await AuthAPI.signup(username, email, password);
+                      final response = await AuthAPI.login(email, password);
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text(response['message'])),
                       );
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginScreen()),
+                        MaterialPageRoute(builder: (context) => const Homepage()),
                       );
                     } catch (e) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(e.toString())),
-                      );
+                      ScaffoldMessenger.of(context)
+                          .showSnackBar(SnackBar(content: Text(e.toString())));
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -115,7 +106,7 @@ class SignupForm extends StatelessWidget {
                     textStyle: const TextStyle(fontSize: 20),
                   ),
                   child: const Text(
-                    'Sign Up',
+                    'Login',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -127,7 +118,7 @@ class SignupForm extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      "Already have an account?",
+                      "Don't have an account?",
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
@@ -138,11 +129,11 @@ class SignupForm extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const LoginScreen()),
+                              builder: (context) => const SignupScreen()),
                         );
                       },
                       child: const Text(
-                        'Login',
+                        'Sign Up',
                         style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,

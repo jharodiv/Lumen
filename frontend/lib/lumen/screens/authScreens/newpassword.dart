@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/maharani/widgets/authentication/newpasswordform.dart';
-import 'package:frontend/maharani/widgets/maharaniheader.dart';
+import 'package:frontend/lumen/widgets/authentication/newpasswordform.dart';
+import 'package:frontend/lumen/widgets/lumenheader.dart';
 
 class Newpassword extends StatelessWidget {
   final String resetToken; // Add this field to pass the token

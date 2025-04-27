@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/maharani/widgets/authentication/forgotpasswordconfirmation.dart';
-import 'package:frontend/maharani/widgets/maharaniheader.dart';
+import 'package:frontend/lumen/widgets/authentication/forgotpasswordconfirmation.dart';
+import 'package:frontend/lumen/widgets/lumenheader.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});

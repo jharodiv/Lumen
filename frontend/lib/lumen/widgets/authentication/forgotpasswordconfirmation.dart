@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/maharani/screens/authScreens/newpassword.dart';
-import 'package:frontend/maharani/screens/authScreens/signup_screen.dart';
+import 'package:frontend/lumen/screens/authScreens/newpassword.dart';
+import 'package:frontend/lumen/screens/authScreens/signup_screen.dart';
 import 'package:frontend/service/authapi.dart';
 
 class Forgotpasswordconfirmation extends StatelessWidget {

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/maharani/screens/authScreens/forgotpasswordscreen.dart';
-import 'package:frontend/maharani/screens/homeScreens/homepage.dart';
+import 'package:frontend/lumen/screens/authScreens/login_screen.dart';
 import 'package:frontend/service/authapi.dart';
-import 'package:frontend/maharani/screens/authScreens/signup_screen.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+class SignupForm extends StatelessWidget {
+  const SignupForm({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController usernameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+    bool obscureText = true;
 
     return Center(
       child: SizedBox(
@@ -22,11 +22,21 @@ class LoginForm extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
-                  'Login',
+                  'Sign Up',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
                     fontFamily: 'Inter',
+                  ),
+                ),
+                const SizedBox(height: 20),
+                TextField(
+                  controller: usernameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Username',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black, width: 3.0),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -40,63 +50,62 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                SizedBox(
-                  height: 80,
-                  child: Stack(
-                    children: [
-                      TextField(
-                        obscureText: true,
-                        controller: passwordController,
-                        decoration: const InputDecoration(
-                          labelText: 'Password',
-                          border: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.black, width: 3.0),
-                          ),
+                StatefulBuilder(
+                  builder: (context, setState) {
+                    return TextField(
+                      controller: passwordController,
+                      obscureText: obscureText,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        border: const OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.black, width: 3.0),
                         ),
-                      ),
-                      Positioned(
-                        bottom: -13,
-                        right: 0,
-                        child: TextButton(
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            obscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ForgotPasswordScreen()),
-                            );
+                            setState(() {
+                              obscureText = !obscureText;
+                            });
                           },
-                          child: const Text(
-                            'Forgot Password?',
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
                         ),
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () async {
+                    final username = usernameController.text.trim();
                     final email = emailController.text.trim();
                     final password = passwordController.text.trim();
 
+                    if (username.isEmpty || email.isEmpty || password.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Please fill all fields')),
+                      );
+                      return;
+                    }
+
                     try {
-                      final response = await AuthAPI.login(email, password);
+                      final response =
+                          await AuthAPI.signup(username, email, password);
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text(response['message'])),
                       );
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => const Homepage()),
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
                       );
                     } catch (e) {
-                      ScaffoldMessenger.of(context)
-                          .showSnackBar(SnackBar(content: Text(e.toString())));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(e.toString())),
+                      );
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -106,7 +115,7 @@ class LoginForm extends StatelessWidget {
                     textStyle: const TextStyle(fontSize: 20),
                   ),
                   child: const Text(
-                    'Login',
+                    'Sign Up',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -118,7 +127,7 @@ class LoginForm extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      "Don't have an account?",
+                      "Already have an account?",
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
@@ -129,11 +138,11 @@ class LoginForm extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SignupScreen()),
+                              builder: (context) => const LoginScreen()),
                         );
                       },
                       child: const Text(
-                        'Sign Up',
+                        'Login',
                         style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,

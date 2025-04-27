@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/maharani/widgets/authentication/authentication_image.dart';
-import 'package:frontend/maharani/widgets/authentication/signup_form.dart';
+import 'package:frontend/lumen/widgets/authentication/authentication_image.dart';
+import 'package:frontend/lumen/widgets/authentication/signup_form.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/maharani/screens/authScreens/login_screen.dart';
+import 'package:frontend/lumen/screens/authScreens/login_screen.dart';
 import 'package:frontend/service/authapi.dart';
 
 class Newpasswordform extends StatelessWidget {

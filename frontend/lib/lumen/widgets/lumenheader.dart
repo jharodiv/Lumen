@@ -7,7 +7,7 @@ class Maharaniheader extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text(
-        'MAHARANI',
+        'LUMEN',
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 24,

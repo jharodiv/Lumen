@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/maharani/widgets/myspaceStartup/createstartup.dart';
-import 'package:frontend/maharani/widgets/myspaceStartup/joinstartup.dart';
+import 'package:frontend/lumen/widgets/myspaceStartup/createstartup.dart';
+import 'package:frontend/lumen/widgets/myspaceStartup/joinstartup.dart';
 
 class SpacestartupScreen extends StatelessWidget {
   const SpacestartupScreen({super.key});

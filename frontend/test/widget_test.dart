@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:frontend/maharani/screens/authScreens/login_screen.dart';
+import 'package:frontend/lumen/screens/authScreens/login_screen.dart';
 
 void main() {
   testWidgets('Login screen smoke test', (WidgetTester tester) async {
