@@ -26,3 +26,10 @@ flutter:
   assets:
     - assets/images/authentication/
     - assets/animation/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter/Inter_18pt-Regular.ttf
+        - asset: assets/fonts/Inter/Inter_18pt-Bold.ttf
+          weight: 700
