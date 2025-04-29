@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/lumen/screens/authScreens/signup_screen.dart';
 import 'package:frontend/lumen/screens/splashscreen.dart';
 
 void main() {
@@ -53,7 +52,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const SignupScreen(),
+      home: const Splashscreen(),
     );
   }
 }

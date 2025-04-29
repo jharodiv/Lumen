@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/lumen/screens/authScreens/forgotpasswordscreen.dart';
-import 'package:frontend/lumen/screens/homeScreens/homepage.dart';
-import 'package:frontend/service/authapi.dart';
-import 'package:frontend/lumen/screens/authScreens/signup_screen.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -10,143 +6,89 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
 
     return Center(
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.8,
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Text(
-                  'Login',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    fontFamily: 'Inter',
-                  ),
-                ),
-                const SizedBox(height: 20),
-                TextField(
-                  controller: emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 3.0),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  height: 80,
-                  child: Stack(
-                    children: [
-                      TextField(
-                        obscureText: true,
-                        controller: passwordController,
-                        decoration: const InputDecoration(
-                          labelText: 'Password',
-                          border: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.black, width: 3.0),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        bottom: -13,
-                        right: 0,
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ForgotPasswordScreen()),
-                            );
-                          },
-                          child: const Text(
-                            'Forgot Password?',
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () async {
-                    final email = emailController.text.trim();
-                    final password = passwordController.text.trim();
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          double width = constraints.maxWidth;
 
-                    try {
-                      final response = await AuthAPI.login(email, password);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(response['message'])),
-                      );
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const Homepage()),
-                      );
-                    } catch (e) {
-                      ScaffoldMessenger.of(context)
-                          .showSnackBar(SnackBar(content: Text(e.toString())));
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 57, 153, 107),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 15, horizontal: 50),
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 3),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+          return SizedBox(
+            width: width * 0.8,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text(
-                      "Don't have an account?",
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w400,
+                    Column(
+                      children: [
+                        Image.asset(
+                          'assets/images/others/temporarylogo.png',
+                          height: 80,
+                        ),
+                        const SizedBox(height: 10),
+                        const Text(
+                          'Where every memory finds its light.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 28,
+                            fontFamily: 'Inter',
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 30),
+                    TextField(
+                      controller: emailController,
+                      decoration: const InputDecoration(
+                        labelText: 'Email address',
+                        border: OutlineInputBorder(),
                       ),
                     ),
-                    TextButton(
+                    const SizedBox(height: 20),
+                    TextField(
+                      controller: emailController,
+                      decoration: const InputDecoration(
+                        labelText: 'Password',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SignupScreen()),
+                        final email = emailController.text.trim();
+                        if (email.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Please Enter your email')),
+                          );
+                          return;
+                        }
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Continue with email')),
                         );
                       },
-                      child: const Text(
-                        'Sign Up',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromARGB(255, 57, 153, 107),
+                        minimumSize: const Size(double.infinity, 50),
+                        textStyle: const TextStyle(fontSize: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
                         ),
                       ),
-                    )
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ],
-                )
-              ],
+                ),
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

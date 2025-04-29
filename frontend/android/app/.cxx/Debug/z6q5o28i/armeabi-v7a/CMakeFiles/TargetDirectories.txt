@@ -1,0 +1,2 @@
+C:/Users/USER/Desktop/Github/Lumen/frontend/android/app/.cxx/Debug/z6q5o28i/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/USER/Desktop/Github/Lumen/frontend/android/app/.cxx/Debug/z6q5o28i/armeabi-v7a/CMakeFiles/rebuild_cache.dir
