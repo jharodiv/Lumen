@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/lumen/screens/authScreens/newpassword.dart';
-import 'package:frontend/lumen/screens/authScreens/signup_screen.dart';
+import 'package:frontend/lumen/screens/authScreens/lumen_screen.dart';
 import 'package:frontend/service/authapi.dart';
 
 class Forgotpasswordconfirmation extends StatelessWidget {
@@ -96,7 +96,7 @@ class Forgotpasswordconfirmation extends StatelessWidget {
                   Navigator.pop(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const SignupScreen()),
+                        builder: (context) => const LumenScreen()),
                   );
                 },
                 child: const Text(

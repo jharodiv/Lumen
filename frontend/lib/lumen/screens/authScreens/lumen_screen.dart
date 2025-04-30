@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/lumen/widgets/authentication/authentication_image.dart';
-import 'package:frontend/lumen/widgets/authentication/signup_form.dart';
+import 'package:frontend/lumen/widgets/authentication/lumen_form.dart';
 
-class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+class LumenScreen extends StatelessWidget {
+  const LumenScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +14,8 @@ class SignupScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               AuthenticationImage(),
-              SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: SignupForm(),
-              ),
+              SizedBox(height: 1.0),
+              LumenForm(),
             ],
           ),
         ),

@@ -83,6 +83,23 @@ class LoginForm extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
+                    const SizedBox(height: 10),
+                    TextButton(
+                      onPressed: () {
+                        // ForgotPasswordLogic
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text('Forgot password tapped')),
+                        );
+                      },
+                      child: const Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

@@ -1,6 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/lumen/screens/authScreens/signup_screen.dart';
+import 'package:frontend/lumen/screens/authScreens/lumen_screen.dart';
 import 'package:lottie/lottie.dart';
 
 class Splashscreen extends StatelessWidget {
@@ -22,7 +22,7 @@ class Splashscreen extends StatelessWidget {
           ),
         ),
       ),
-      nextScreen: const SignupScreen(),
+      nextScreen: const LumenScreen(),
       duration: 2500,
     );
   }
