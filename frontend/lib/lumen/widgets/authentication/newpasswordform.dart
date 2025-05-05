@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/lumen/screens/authScreens/login_screen.dart';
+import 'package:frontend/lumen/widgets/authentication/signup_form.dart';
 import 'package:frontend/service/authapi.dart';
 
 class Newpasswordform extends StatelessWidget {
@@ -39,7 +39,7 @@ class Newpasswordform extends StatelessWidget {
         // Navigate to the login screen after success
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()),
+          MaterialPageRoute(builder: (context) => const SignupForm()),
           (route) => false, // Remove all previous routes
         );
       } catch (e) {

@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 
-class SignupForm extends StatelessWidget {
+class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final TextEditingController emailController = TextEditingController();
+  State<SignupForm> createState() => _SignupFormState();
+}
 
+class _SignupFormState extends State<SignupForm> {
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+
+  bool _obscurePassword = true;
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -48,11 +56,23 @@ class SignupForm extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     TextField(
-                      controller: emailController,
-                      decoration: const InputDecoration(
-                        labelText: 'Password',
-                        border: OutlineInputBorder(),
-                      ),
+                      controller: passwordController,
+                      obscureText: _obscurePassword,
+                      decoration: InputDecoration(
+                          labelText: 'Password',
+                          border: const OutlineInputBorder(),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                                _obscurePassword
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                                color: Colors.white),
+                            onPressed: () {
+                              setState(() {
+                                _obscurePassword = !_obscurePassword;
+                              });
+                            },
+                          )),
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
@@ -79,7 +99,7 @@ class SignupForm extends StatelessWidget {
                         ),
                       ),
                       child: const Text(
-                        'Login',
+                        'Continue',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
