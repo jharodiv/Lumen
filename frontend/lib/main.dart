@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/firebase_options.dart';
 import 'package:frontend/lumen/screens/authScreens/lumen_screen.dart';
 import 'package:frontend/lumen/screens/authScreens/registrationscreen_one.dart';
 import 'package:frontend/lumen/screens/authScreens/signup_screen.dart';
 import 'package:frontend/lumen/screens/splashscreen.dart';
 import 'package:frontend/lumen/widgets/authentication/signup_form.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
