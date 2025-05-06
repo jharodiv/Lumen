@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/lumen/screens/authScreens/lumen_screen.dart';
+import 'package:frontend/lumen/screens/authScreens/registrationscreen_one.dart';
 import 'package:frontend/lumen/screens/authScreens/signup_screen.dart';
 import 'package:frontend/lumen/screens/splashscreen.dart';
 import 'package:frontend/lumen/widgets/authentication/signup_form.dart';
@@ -70,7 +71,7 @@ class MyApp extends StatelessWidget {
           textSelectionTheme: const TextSelectionThemeData(
             cursorColor: Colors.white,
           )),
-      home: const SignupScreen(),
+      home: const RegistrationscreenOne(),
     );
   }
 }
