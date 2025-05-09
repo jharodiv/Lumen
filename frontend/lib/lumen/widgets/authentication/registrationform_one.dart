@@ -50,9 +50,12 @@ class _RegistrationformOne extends State<RegistrationformOne> {
                     TextField(
                       controller: nameController,
                       decoration: const InputDecoration(
-                        labelText: 'Name',
-                        border: OutlineInputBorder(),
-                      ),
+                          labelText: 'Name',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(
+                            Icons.account_circle_outlined,
+                            color: Color.fromARGB(255, 57, 153, 107),
+                          )),
                     ),
                     const SizedBox(height: 20),
                     TextField(
@@ -61,6 +64,10 @@ class _RegistrationformOne extends State<RegistrationformOne> {
                       decoration: InputDecoration(
                           labelText: 'Password',
                           border: const OutlineInputBorder(),
+                          prefixIcon: const Icon(
+                            Icons.lock,
+                            color: Color.fromARGB(255, 57, 153, 107),
+                          ),
                           suffixIcon: IconButton(
                             icon: Icon(
                                 _obscurePassword

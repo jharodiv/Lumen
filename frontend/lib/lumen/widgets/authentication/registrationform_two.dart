@@ -8,10 +8,22 @@ class RegistrationformTwo extends StatefulWidget {
 }
 
 class _RegistrationformTwo extends State<RegistrationformTwo> {
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController birthdateController = TextEditingController();
 
-  bool _obscurePassword = true;
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != DateTime.now()) {
+      setState(() {
+        birthdateController.text = "${picked.toLocal()}".split(' ')[0];
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,45 +60,48 @@ class _RegistrationformTwo extends State<RegistrationformTwo> {
                     ),
                     const SizedBox(height: 30),
                     TextField(
-                      controller: nameController,
+                      controller: birthdateController,
                       decoration: const InputDecoration(
-                        labelText: 'Name',
+                        labelText: 'Birthdate',
                         border: OutlineInputBorder(),
+                        hintText: 'Select your birthdate',
+                        prefixIcon: Icon(
+                          Icons.calendar_today,
+                          color: Color.fromARGB(255, 57, 153, 107),
+                        ),
                       ),
+                      readOnly: true,
+                      onTap: () => _selectDate(context),
                     ),
                     const SizedBox(height: 20),
                     TextField(
-                      controller: passwordController,
-                      obscureText: _obscurePassword,
-                      decoration: InputDecoration(
-                          labelText: 'Password',
-                          border: const OutlineInputBorder(),
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                                _obscurePassword
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                                color: Colors.white),
-                            onPressed: () {
-                              setState(() {
-                                _obscurePassword = !_obscurePassword;
-                              });
-                            },
-                          )),
+                      controller: usernameController,
+                      decoration: const InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.alternate_email,
+                          color: Color.fromARGB(255, 57, 153, 107),
+                        ),
+                        labelText: 'Username',
+                        border: OutlineInputBorder(),
+                        hintText: 'Create your custom username',
+                      ),
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {
-                        final name = nameController.text.trim();
+                        final name = birthdateController.text.trim();
                         if (name.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                                content: Text('Please Enter your name')),
+                              content: Text('Please Enter your birthdate'),
+                            ),
                           );
                           return;
                         }
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Continue with name')),
+                          const SnackBar(
+                            content: Text('Continue with birthdate'),
+                          ),
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -99,8 +114,7 @@ class _RegistrationformTwo extends State<RegistrationformTwo> {
                         ),
                       ),
                       child: const Text(
-                        'Next',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        'Create my account',
                       ),
                     ),
                   ],

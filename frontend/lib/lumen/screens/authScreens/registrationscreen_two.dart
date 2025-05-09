@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/lumen/widgets/authentication/authentication_image.dart';
+import 'package:frontend/lumen/widgets/authentication/registrationform_two.dart';
 
 class RegistrationscreenTwo extends StatelessWidget {
   const RegistrationscreenTwo({super.key});
@@ -16,7 +17,7 @@ class RegistrationscreenTwo extends StatelessWidget {
               SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: RegistrationscreenTwo(),
+                child: RegistrationformTwo(),
               ),
             ],
           ),
