@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/firebase_options.dart';
+import 'package:frontend/lumen/screens/MainFeed/mainfeedScreen.dart';
 import 'package:frontend/lumen/screens/authScreens/forgotpasswordscreen.dart';
 import 'package:frontend/lumen/screens/authScreens/lumen_screen.dart';
 import 'package:frontend/lumen/screens/authScreens/newpassword.dart';
@@ -79,7 +80,7 @@ class MyApp extends StatelessWidget {
           textSelectionTheme: const TextSelectionThemeData(
             cursorColor: Colors.white,
           )),
-      home: const LoginScreen(),
+      home: Mainfeedscreen(),
     );
   }
 }
