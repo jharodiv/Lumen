@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/lumen/screens/authScreens/registrationscreen_one.dart';
 
 class LumenForm extends StatelessWidget {
   const LumenForm({super.key});
@@ -64,14 +65,17 @@ class LumenForm extends StatelessWidget {
                         if (email.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                                content: Text('Please Enter your email')),
+                                content: Text('Please enter your email')),
                           );
                           return;
                         }
-                        ScaffoldMessenger.of(context)
-                            .showSnackBar(const SnackBar(
-                          content: Text('Continue with email'),
-                        ));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                RegistrationscreenOne(email: email), //NOTE: IF THE EMAIL IS NOT YET REGISTERED THE SCREEN WILL GO TO THE REGISTRATIONONESCREEN BUT IF THE EMAIL IS ALREADY REGISTERED THE SCREEN WILL GO TO THE LOGINSCREEN
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor:

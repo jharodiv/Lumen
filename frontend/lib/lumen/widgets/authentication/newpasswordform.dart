@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/lumen/widgets/authentication/signup_form.dart';
-import 'package:frontend/service/authapi.dart';
+import 'package:frontend/lumen/widgets/authentication/login_form.dart';
 
 class Newpasswordform extends StatelessWidget {
-  final String resetToken; // Add this to pass the reset token
-  const Newpasswordform({super.key, required this.resetToken});
+  const Newpasswordform({super.key}); // Removed resetToken
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +10,7 @@ class Newpasswordform extends StatelessWidget {
     final TextEditingController confirmPasswordController =
         TextEditingController();
 
-    void handleResetPassword() async {
+    void handleResetPassword() {
       final newPassword = passwordController.text.trim();
       final confirmPassword = confirmPasswordController.text.trim();
 
@@ -30,23 +28,15 @@ class Newpasswordform extends StatelessWidget {
         return;
       }
 
-      try {
-        final response = await AuthAPI.resetPassword(resetToken, newPassword);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(response['message'])),
-        );
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Password reset successful (demo)')),
+      );
 
-        // Navigate to the login screen after success
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => const SignupForm()),
-          (route) => false, // Remove all previous routes
-        );
-      } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.toString())),
-        );
-      }
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginForm()),
+        (route) => false,
+      );
     }
 
     return Padding(
@@ -72,7 +62,7 @@ class Newpasswordform extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
-            obscureText: true, // Ensure password is hidden
+            obscureText: true,
           ),
           const SizedBox(height: 20),
           TextField(
@@ -83,7 +73,7 @@ class Newpasswordform extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
-            obscureText: true, // Ensure password is hidden
+            obscureText: true,
           ),
           const SizedBox(height: 20),
           SizedBox(
@@ -91,15 +81,17 @@ class Newpasswordform extends StatelessWidget {
             child: ElevatedButton(
               onPressed: handleResetPassword,
               style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF39996B),
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0))),
+                backgroundColor: const Color(0xFF39996B),
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
+              ),
               child: const Text(
                 'Save',
                 style: TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.normal,
                   color: Colors.white,
                 ),
               ),

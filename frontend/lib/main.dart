@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/firebase_options.dart';
+import 'package:frontend/lumen/screens/authScreens/forgotpasswordscreen.dart';
 import 'package:frontend/lumen/screens/authScreens/lumen_screen.dart';
+import 'package:frontend/lumen/screens/authScreens/newpassword.dart';
 import 'package:frontend/lumen/screens/authScreens/registrationscreen_one.dart';
 import 'package:frontend/lumen/screens/authScreens/registrationscreen_two.dart';
-import 'package:frontend/lumen/screens/authScreens/signup_screen.dart';
+import 'package:frontend/lumen/screens/authScreens/login_screen.dart';
 import 'package:frontend/lumen/screens/splashscreen.dart';
 import 'package:frontend/lumen/widgets/authentication/registrationform_two.dart';
-import 'package:frontend/lumen/widgets/authentication/signup_form.dart';
+import 'package:frontend/lumen/widgets/authentication/login_form.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
@@ -77,7 +79,7 @@ class MyApp extends StatelessWidget {
           textSelectionTheme: const TextSelectionThemeData(
             cursorColor: Colors.white,
           )),
-      home: const RegistrationscreenTwo(),
+      home: const LoginScreen(),
     );
   }
 }

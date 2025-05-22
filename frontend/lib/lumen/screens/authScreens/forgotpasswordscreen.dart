@@ -21,7 +21,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const SizedBox(height: 30),
-                  const Maharaniheader(),
+                  const LumenHeader(),
                   const SizedBox(height: 70),
                   Container(
                     padding: const EdgeInsets.all(16),

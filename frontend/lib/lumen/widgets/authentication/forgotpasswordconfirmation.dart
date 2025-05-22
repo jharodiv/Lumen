@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/lumen/screens/authScreens/newpassword.dart';
 import 'package:frontend/lumen/screens/authScreens/lumen_screen.dart';
-import 'package:frontend/service/authapi.dart';
 
 class Forgotpasswordconfirmation extends StatelessWidget {
   const Forgotpasswordconfirmation({super.key});
@@ -39,7 +38,7 @@ class Forgotpasswordconfirmation extends StatelessWidget {
           SizedBox(
             width: 150,
             child: ElevatedButton(
-              onPressed: () async {
+              onPressed: () {
                 final email = emailController.text.trim();
 
                 if (email.isEmpty) {
@@ -48,29 +47,21 @@ class Forgotpasswordconfirmation extends StatelessWidget {
                   return;
                 }
 
-                try {
-                  final response = await AuthAPI.forgotpassword(email);
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(response['message'])));
-
-                  // Navigate to the Newpassword screen with the reset token
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          Newpassword(resetToken: response['resetToken']),
-                    ),
-                  );
-                } catch (e) {
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(SnackBar(content: Text(e.toString())));
-                }
+                // For frontend-only testing: Skip backend and go to Newpassword screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Newpassword(),
+                  ),
+                );
               },
               style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 57, 153, 107),
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0))),
+                backgroundColor: const Color.fromARGB(255, 57, 153, 107),
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
+              ),
               child: const Text(
                 'Continue',
                 style: TextStyle(

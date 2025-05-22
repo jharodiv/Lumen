@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/lumen/screens/authScreens/registrationscreen_two.dart';
 
 class RegistrationformOne extends StatefulWidget {
   const RegistrationformOne({super.key});
@@ -50,50 +51,62 @@ class _RegistrationformOne extends State<RegistrationformOne> {
                     TextField(
                       controller: nameController,
                       decoration: const InputDecoration(
-                          labelText: 'Name',
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(
-                            Icons.account_circle_outlined,
-                            color: Color.fromARGB(255, 57, 153, 107),
-                          )),
+                        labelText: 'Name',
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(
+                          Icons.account_circle_outlined,
+                          color: Color.fromARGB(255, 57, 153, 107),
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 20),
                     TextField(
                       controller: passwordController,
                       obscureText: _obscurePassword,
                       decoration: InputDecoration(
-                          labelText: 'Password',
-                          border: const OutlineInputBorder(),
-                          prefixIcon: const Icon(
-                            Icons.lock,
-                            color: Color.fromARGB(255, 57, 153, 107),
+                        labelText: 'Password',
+                        border: const OutlineInputBorder(),
+                        prefixIcon: const Icon(
+                          Icons.lock,
+                          color: Color.fromARGB(255, 57, 153, 107),
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _obscurePassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: Colors.white,
                           ),
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                                _obscurePassword
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                                color: Colors.white),
-                            onPressed: () {
-                              setState(() {
-                                _obscurePassword = !_obscurePassword;
-                              });
-                            },
-                          )),
+                          onPressed: () {
+                            setState(() {
+                              _obscurePassword = !_obscurePassword;
+                            });
+                          },
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {
                         final name = nameController.text.trim();
-                        if (name.isEmpty) {
+                        final password = passwordController.text.trim();
+
+                        if (name.isEmpty || password.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                                content: Text('Please Enter your name')),
+                              content: Text(
+                                'Please enter both your name and password',
+                              ),
+                            ),
                           );
                           return;
                         }
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Continue with name')),
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RegistrationscreenTwo(),
+                          ),
                         );
                       },
                       style: ElevatedButton.styleFrom(

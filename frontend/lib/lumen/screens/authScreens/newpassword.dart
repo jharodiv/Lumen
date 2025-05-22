@@ -3,9 +3,7 @@ import 'package:frontend/lumen/widgets/authentication/newpasswordform.dart';
 import 'package:frontend/lumen/widgets/lumenheader.dart';
 
 class Newpassword extends StatelessWidget {
-  final String resetToken; // Add this field to pass the token
-
-  const Newpassword({super.key, required this.resetToken});
+  const Newpassword({super.key}); // Removed resetToken
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +21,11 @@ class Newpassword extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const SizedBox(height: 30),
-                  const Maharaniheader(),
+                  const LumenHeader(),
                   const SizedBox(height: 70),
                   Container(
                     padding: const EdgeInsets.all(16),
-                    child: Newpasswordform(resetToken: resetToken),
+                    child: const Newpasswordform(), // Removed parameter
                   ),
                 ],
               ),

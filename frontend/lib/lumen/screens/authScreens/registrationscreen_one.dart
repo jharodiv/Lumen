@@ -3,7 +3,9 @@ import 'package:frontend/lumen/widgets/authentication/authentication_image.dart'
 import 'package:frontend/lumen/widgets/authentication/registrationform_one.dart';
 
 class RegistrationscreenOne extends StatelessWidget {
-  const RegistrationscreenOne({super.key});
+  final String email;
+
+  const RegistrationscreenOne({super.key, required this.email});
 
   @override
   Widget build(BuildContext context) {

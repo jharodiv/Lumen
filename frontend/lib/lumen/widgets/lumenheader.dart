@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Maharaniheader extends StatelessWidget {
-  const Maharaniheader({super.key});
+class LumenHeader extends StatelessWidget {
+  const LumenHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +10,8 @@ class Maharaniheader extends StatelessWidget {
         'LUMEN',
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 24,
-          color: Colors.black,
+          fontSize: 34,
+          color: Colors.white,
         ),
       ),
     );
