@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/lumen/widgets/MainFeedWidgets/postViewer.dart';
+import 'package:frontend/lumen/widgets/MainFeedWidgets/postviewer.dart';
 
 class Mainfeedscreen extends StatelessWidget {
   Mainfeedscreen({Key? key}) : super(key: key);
