@@ -5,9 +5,7 @@ class Mainfeedscreen extends StatelessWidget {
   Mainfeedscreen({Key? key}) : super(key: key);
 
   final List<String> imageUrls = [
-    'https://picsum.photos/id/1018/800/1600',
-    'https://picsum.photos/id/1025/800/1600',
-    'https://picsum.photos/id/1020/800/1600',
+    'assets/images/others/test1.jpg',
   ];
 
   @override

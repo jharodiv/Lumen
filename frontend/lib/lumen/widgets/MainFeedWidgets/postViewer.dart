@@ -19,7 +19,6 @@ class Postviewer extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
-                  // Logo
                   SizedBox(
                     width: 96,
                     child: Align(
@@ -62,16 +61,12 @@ class Postviewer extends StatelessWidget {
                     children: [
                       IconButton(
                         icon: const Icon(Icons.search, color: Colors.white),
-                        onPressed: () {
-                          // TODO: Navigate to Search screen
-                        },
+                        onPressed: () {},
                       ),
                       IconButton(
                         icon: const Icon(Icons.chat_bubble_outline,
                             color: Colors.white),
-                        onPressed: () {
-                          // TODO: Navigate to Chat screen
-                        },
+                        onPressed: () {},
                       ),
                     ],
                   ),
@@ -79,21 +74,127 @@ class Postviewer extends StatelessWidget {
               ),
             ),
 
-            // Image Viewer
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
-                  child: Image.network(
-                    imageUrl,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    height: double.infinity,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return const Center(child: CircularProgressIndicator());
-                    },
+                  child: Stack(
+                    children: [
+                      // Image
+                      Positioned.fill(
+                        child: Image.asset(
+                          imageUrl,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+
+                      Positioned(
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        child: Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.transparent, Colors.black87],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            ),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.only(
+                                bottom: 12, left: 12, right: 12),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Expanded(
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 24,
+                                        backgroundImage: AssetImage(
+                                                'assets/images/others/testprofile.jpg')
+                                            as ImageProvider,
+                                      ),
+                                      SizedBox(width: 12),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text(
+                                              "@username",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            SizedBox(height: 4),
+                                            Text(
+                                              "Test Caption - Kawu",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 14),
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 2,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Icon(Icons.favorite_border,
+                                            color: Colors.white, size: 28),
+                                        SizedBox(height: 4),
+                                        Text("120",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12)),
+                                      ],
+                                    ),
+                                    SizedBox(height: 16),
+                                    Column(
+                                      children: [
+                                        Icon(Icons.comment_outlined,
+                                            color: Colors.white, size: 28),
+                                        SizedBox(height: 4),
+                                        Text("32",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12)),
+                                      ],
+                                    ),
+                                    SizedBox(height: 16),
+                                    Column(
+                                      children: [
+                                        Icon(Icons.share_outlined,
+                                            color: Colors.white, size: 28),
+                                        SizedBox(height: 4),
+                                        Text("15",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12)),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
