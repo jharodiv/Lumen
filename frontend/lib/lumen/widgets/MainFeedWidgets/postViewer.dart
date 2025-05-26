@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/lumen/widgets/MainFeedWidgets/comment_section.dart';
 import 'package:frontend/lumen/widgets/MainFeedWidgets/lumen_bottomnav.dart';
 
 class Postviewer extends StatelessWidget {
@@ -8,6 +9,15 @@ class Postviewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void _showComments() {
+      showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        builder: (context) => const CommentSection(),
+      );
+    }
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
@@ -102,13 +112,13 @@ class Postviewer extends StatelessWidget {
                               end: Alignment.bottomCenter,
                             ),
                           ),
-                          child: const Padding(
-                            padding: EdgeInsets.only(
+                          child: Padding(
+                            padding: const EdgeInsets.only(
                                 bottom: 12, left: 12, right: 12),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Expanded(
+                                const Expanded(
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -152,7 +162,7 @@ class Postviewer extends StatelessWidget {
                                 Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Column(
+                                    const Column(
                                       children: [
                                         Icon(Icons.favorite_border,
                                             color: Colors.white, size: 28),
@@ -163,20 +173,25 @@ class Postviewer extends StatelessWidget {
                                                 fontSize: 12)),
                                       ],
                                     ),
-                                    SizedBox(height: 16),
+                                    const SizedBox(height: 16),
                                     Column(
                                       children: [
-                                        Icon(Icons.comment_outlined,
-                                            color: Colors.white, size: 28),
-                                        SizedBox(height: 4),
-                                        Text("32",
+                                        IconButton(
+                                          icon: const Icon(
+                                              Icons.comment_outlined,
+                                              color: Colors.white,
+                                              size: 28),
+                                          onPressed: _showComments,
+                                        ),
+                                        const SizedBox(height: 4),
+                                        const Text("32",
                                             style: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 12)),
                                       ],
                                     ),
-                                    SizedBox(height: 16),
-                                    Column(
+                                    const SizedBox(height: 16),
+                                    const Column(
                                       children: [
                                         Icon(Icons.share_outlined,
                                             color: Colors.white, size: 28),
