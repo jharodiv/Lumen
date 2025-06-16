@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/lumen/widgets/MainFeedWidgets/comment_section.dart';
 import 'package:frontend/lumen/widgets/MainFeedWidgets/lumen_bottomnav.dart';
+import 'package:frontend/lumen/widgets/MainFeedWidgets/share_section.dart';
 
 class Postviewer extends StatelessWidget {
   final String imageUrl;
@@ -15,6 +16,15 @@ class Postviewer extends StatelessWidget {
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
         builder: (context) => const CommentSection(),
+      );
+    }
+
+    void _showShareOptions() {
+      showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        builder: (context) => const ShareSection(),
       );
     }
 
@@ -191,12 +201,15 @@ class Postviewer extends StatelessWidget {
                                       ],
                                     ),
                                     const SizedBox(height: 16),
-                                    const Column(
+                                    Column(
                                       children: [
-                                        Icon(Icons.share_outlined,
-                                            color: Colors.white, size: 28),
-                                        SizedBox(height: 4),
-                                        Text("15",
+                                        IconButton(
+                                          onPressed: _showShareOptions,
+                                          icon: const Icon(Icons.share_outlined,
+                                              color: Colors.white, size: 28),
+                                        ),
+                                        const SizedBox(height: 4),
+                                        const Text("15",
                                             style: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 12)),
