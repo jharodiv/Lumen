@@ -8,9 +8,13 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( 
-        title: const Text('@username'),
-        centerTitle: true,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.arrow_back),
+        ),
       ),
       body: const SingleChildScrollView(
         child: Column(

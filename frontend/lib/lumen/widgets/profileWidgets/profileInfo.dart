@@ -21,41 +21,51 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
             ),
-            const Positioned(
-              bottom: -44,
+            Positioned(
+              bottom: -MediaQuery.of(context).size.height * 0.06,
               left: 20,
-              right: 0,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  CircleAvatar(
-                    radius: 40,
+                  const CircleAvatar(
+                    radius: 45,
                     backgroundImage:
                         AssetImage('assets/images/others/test1.jpg'),
                   ),
-                  SizedBox(width: 12),
-                  Padding(
-                    padding: EdgeInsets.only(top: 35.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'JEM CENTINO',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            color: Colors.white,
-                          ),
+                  const SizedBox(width: 12),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(height: 16),
+                      Text(
+                        'Jem Centino',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Colors.white,
                         ),
-                        Text(
-                          '@jemllyace',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white70,
-                          ),
+                      ),
+                      Text(
+                        '@jemllyace',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white70,
                         ),
-                      ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(width: 12),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Edit",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 12.0),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF339857),
+                      minimumSize: Size(120, 25), //width,height
                     ),
                   ),
                 ],
