@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/firebase_options.dart';
-import 'package:frontend/lumen/screens/MainFeed/mainfeedScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:frontend/lumen/screens/profileScreens/profileScreen.dart';
-import 'package:frontend/lumen/screens/searchscreen/searchscreen.dart';
+import 'package:frontend/lumen/screens/mylight/setupmylightscreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -73,7 +71,7 @@ class MyApp extends StatelessWidget {
           textSelectionTheme: const TextSelectionThemeData(
             cursorColor: Colors.white,
           )),
-      home: Searchscreen(),
+      home: Setupmylightscreen(),
     );
   }
 }
