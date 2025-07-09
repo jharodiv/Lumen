@@ -17,3 +17,5 @@ class Tempophotorepo implements Photorepositories {
     ];
   }
 }
+//This will act as the temporary database for the temporary photos (Frontend approach)
+// Backend approach will be implemented soon

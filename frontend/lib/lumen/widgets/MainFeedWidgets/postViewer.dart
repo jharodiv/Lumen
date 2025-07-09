@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/lumen/widgets/MainFeedWidgets/comment_section.dart';
-import 'package:frontend/lumen/widgets/MainFeedWidgets/lumen_bottomnav.dart';
+import 'package:frontend/lumen/widgets/lumenbottomnav.dart';
 import 'package:frontend/lumen/widgets/MainFeedWidgets/share_section.dart';
 
 class Postviewer extends StatelessWidget {
@@ -229,15 +229,6 @@ class Postviewer extends StatelessWidget {
             ),
           ],
         ),
-      ),
-
-      // Footer
-      bottomNavigationBar: const SafeArea(
-        bottom: true,
-        top: false,
-        left: false,
-        right: false,
-        child: LumenBottomnav(),
       ),
     );
   }

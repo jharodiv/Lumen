@@ -39,7 +39,7 @@ class ProfileInfo extends StatelessWidget {
                     children: [
                       SizedBox(height: 16),
                       Text(
-                        'Jem Centino',
+                        'Aiah Arceta',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -47,7 +47,7 @@ class ProfileInfo extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '@jemllyace',
+                        '@biniaiah',
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.white70,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/lumen/widgets/MainFeedWidgets/postviewer.dart';
+import 'package:frontend/lumen/widgets/lumenbottomnav.dart';
 
 class Mainfeedscreen extends StatelessWidget {
   Mainfeedscreen({Key? key}) : super(key: key);
@@ -19,6 +20,8 @@ class Mainfeedscreen extends StatelessWidget {
           return Postviewer(imageUrl: imageUrls[index]);
         },
       ),
+      bottomNavigationBar:
+          const SafeArea(bottom: true, child: LumenBottomnav()),
     );
   }
 }

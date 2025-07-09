@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/lumen/screens/profileScreens/profileGrid.dart';
+import 'package:frontend/lumen/widgets/lumenbottomnav.dart';
 import 'package:frontend/lumen/widgets/profileWidgets/profileInfo.dart';
 import 'package:frontend/lumen/widgets/profileWidgets/profilePhotoGrid.dart';
 import 'package:frontend/repositories/photoRepositories.dart';
@@ -51,6 +52,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ],
         ),
       ),
+      bottomNavigationBar:
+          const SafeArea(bottom: true, child: LumenBottomnav()),
     );
   }
 }
