@@ -19,7 +19,7 @@ class Setupmylight extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 const Text(
-                  'Setup My Light',
+                  'Set Up My Light',
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -57,7 +57,7 @@ class Setupmylight extends StatelessWidget {
                   // Setup Light action
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF339857),
+                  backgroundColor: const Color(0xFF339857),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   shape: RoundedRectangleBorder(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:frontend/lumen/screens/mylight/mylightnamescreen.dart';
 import 'package:frontend/lumen/screens/mylight/setupmylightscreen.dart';
 
 void main() async {
@@ -71,7 +72,7 @@ class MyApp extends StatelessWidget {
           textSelectionTheme: const TextSelectionThemeData(
             cursorColor: Colors.white,
           )),
-      home: Setupmylightscreen(),
+      home: MyLightnamescreen(),
     );
   }
 }

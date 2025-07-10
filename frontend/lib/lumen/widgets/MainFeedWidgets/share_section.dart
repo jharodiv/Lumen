@@ -97,7 +97,7 @@ class ShareSection extends StatelessWidget {
       ),
     );
   }
-
+  // This function Builds a social icon with a label underneath
   Widget _buildSocialIcon(Widget icon, String label) {
     return Column(
       children: [

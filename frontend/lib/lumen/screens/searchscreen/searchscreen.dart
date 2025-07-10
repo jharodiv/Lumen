@@ -14,11 +14,16 @@ class Searchscreen extends StatelessWidget {
         child: Column(
           children: [
             Mainlumenheader(),
-            Expanded(child: Searchbar()),
+            Expanded(
+              child: Searchbar(),
+            ),
           ],
         ),
       ),
-      bottomNavigationBar: SafeArea(bottom: true, child: LumenBottomnav()),
+      bottomNavigationBar: SafeArea(
+        bottom: true,
+        child: LumenBottomnav(),
+      ),
     );
   }
 }
