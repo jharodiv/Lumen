@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/lumen/screens/MainFeed/mainfeedScreen.dart';
 
 class RegistrationformTwo extends StatefulWidget {
   const RegistrationformTwo({super.key});
@@ -98,11 +99,10 @@ class _RegistrationformTwo extends State<RegistrationformTwo> {
                           );
                           return;
                         }
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Continue with birthdate'),
-                          ),
-                        );
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Mainfeedscreen()));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor:

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:frontend/lumen/screens/mylight/sharecodescreen.dart';
+import 'package:frontend/lumen/screens/splashscreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -71,7 +72,7 @@ class MyApp extends StatelessWidget {
           textSelectionTheme: const TextSelectionThemeData(
             cursorColor: Colors.white,
           )),
-      home: Sharecodescreen(),
+      home: Splashscreen(),
     );
   }
 }
