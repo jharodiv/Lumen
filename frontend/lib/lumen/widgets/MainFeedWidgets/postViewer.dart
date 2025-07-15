@@ -39,6 +39,7 @@ class Postviewer extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
+                  // Logo (Left)
                   SizedBox(
                     width: 96,
                     child: Align(
@@ -50,7 +51,8 @@ class Postviewer extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Following | For You
+
+                  // Following | For You (Center)
                   const Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -76,24 +78,30 @@ class Postviewer extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // Icons
-                  Row(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.search, color: Colors.white),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.chat_bubble_outline,
-                            color: Colors.white),
-                        onPressed: () {},
-                      ),
-                    ],
+
+                  // Search & Chat Icons (Right)
+                  SizedBox(
+                    width: 96,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.search, color: Colors.white),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.chat_bubble_outline,
+                              color: Colors.white),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
 
+            // Post Content
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -109,6 +117,7 @@ class Postviewer extends StatelessWidget {
                         ),
                       ),
 
+                      // Bottom overlay with caption, profile, and icons
                       Positioned(
                         left: 0,
                         right: 0,
@@ -128,6 +137,7 @@ class Postviewer extends StatelessWidget {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
+                                // Profile & Caption (Left)
                                 const Expanded(
                                   child: Row(
                                     crossAxisAlignment:
@@ -136,8 +146,8 @@ class Postviewer extends StatelessWidget {
                                       CircleAvatar(
                                         radius: 24,
                                         backgroundImage: AssetImage(
-                                                'assets/images/others/testprofile.jpg')
-                                            as ImageProvider,
+                                          'assets/images/others/testprofile.jpg',
+                                        ),
                                       ),
                                       SizedBox(width: 12),
                                       Expanded(
@@ -158,8 +168,9 @@ class Postviewer extends StatelessWidget {
                                             Text(
                                               "Test Caption - Kawu",
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 14),
+                                                color: Colors.white,
+                                                fontSize: 14,
+                                              ),
                                               overflow: TextOverflow.ellipsis,
                                               maxLines: 2,
                                             ),
@@ -169,6 +180,8 @@ class Postviewer extends StatelessWidget {
                                     ],
                                   ),
                                 ),
+
+                                // Actions (Right)
                                 Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
@@ -188,9 +201,10 @@ class Postviewer extends StatelessWidget {
                                       children: [
                                         IconButton(
                                           icon: const Icon(
-                                              Icons.comment_outlined,
-                                              color: Colors.white,
-                                              size: 28),
+                                            Icons.comment_outlined,
+                                            color: Colors.white,
+                                            size: 28,
+                                          ),
                                           onPressed: _showComments,
                                         ),
                                         const SizedBox(height: 4),
@@ -205,8 +219,11 @@ class Postviewer extends StatelessWidget {
                                       children: [
                                         IconButton(
                                           onPressed: _showShareOptions,
-                                          icon: const Icon(Icons.share_outlined,
-                                              color: Colors.white, size: 28),
+                                          icon: const Icon(
+                                            Icons.share_outlined,
+                                            color: Colors.white,
+                                            size: 28,
+                                          ),
                                         ),
                                         const SizedBox(height: 4),
                                         const Text("15",
