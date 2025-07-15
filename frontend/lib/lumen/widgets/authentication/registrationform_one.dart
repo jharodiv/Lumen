@@ -101,7 +101,6 @@ class _RegistrationformOne extends State<RegistrationformOne> {
                           );
                           return;
                         }
-
                         Navigator.push(
                           context,
                           MaterialPageRoute(

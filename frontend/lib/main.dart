@@ -8,8 +8,10 @@ import 'dart:async';
 void main() {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp();
-    runApp(MyApp());
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    runApp(const MyApp());
   }, (error, stack) {
     print('Unhandled Error: $error');
   });

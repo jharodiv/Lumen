@@ -5,41 +5,48 @@ class AuthenticationImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     double itemSpacing = 12.0;
 
-    return Container(
+    return Padding(
       padding: const EdgeInsets.all(20),
-      child: Wrap(
-        spacing: itemSpacing,
-        runSpacing: itemSpacing,
-        children: [
-          _buildTranslatedImageBox(
-            'assets/images/authentication/image1.jpg',
-            width: screenWidth * 0.43,
-            height: screenWidth * 0.3,
-            offset: Offset(screenWidth * -0.08, screenHeight * 0.02),
-          ),
-          _buildTranslatedImageBox(
-            'assets/images/authentication/image2.jpg',
-            width: screenWidth * 0.43,
-            height: screenWidth * 0.3,
-            offset: Offset(screenWidth * 0.03, screenHeight * 0.01),
-          ),
-          _buildTranslatedImageBox(
-            'assets/images/authentication/image3.jpg',
-            width: screenWidth * 0.43,
-            height: screenWidth * 0.3,
-            offset: Offset(-screenWidth * -0.01, -screenHeight * -0.03),
-          ),
-          _buildTranslatedImageBox(
-            'assets/images/authentication/image4.jpg',
-            width: screenWidth * 0.43,
-            height: screenWidth * 0.3,
-            offset: Offset(screenWidth * 0.10, screenHeight * 0.02),
-          ),
-        ],
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          double imageWidth = constraints.maxWidth * 0.43;
+          double imageHeight = imageWidth * 0.75;
+
+          double maxImageWidth = 160;
+          double maxImageHeight = maxImageWidth * 0.75;
+          return Wrap(
+            spacing: itemSpacing,
+            runSpacing: itemSpacing,
+            children: [
+              _buildTranslatedImageBox(
+                'assets/images/authentication/image1.jpg',
+                width: imageWidth.clamp(0, maxImageWidth),
+                height: imageHeight.clamp(0, maxImageHeight),
+                offset: Offset(-imageWidth * 0.1, 0),
+              ),
+              _buildTranslatedImageBox(
+                'assets/images/authentication/image2.jpg',
+                width: imageWidth.clamp(0, maxImageWidth),
+                height: imageHeight.clamp(0, maxImageHeight),
+                offset: Offset(imageWidth * 0.1, -imageHeight * 0.1),
+              ),
+              _buildTranslatedImageBox(
+                'assets/images/authentication/image3.jpg',
+                width: imageWidth.clamp(0, maxImageWidth),
+                height: imageHeight.clamp(0, maxImageHeight),
+                offset: Offset(imageWidth * 0.08, imageHeight * 0.15),
+              ),
+              _buildTranslatedImageBox(
+                'assets/images/authentication/image4.jpg',
+                width: imageWidth.clamp(0, maxImageWidth),
+                height: imageHeight.clamp(0, maxImageHeight),
+                offset: Offset(imageWidth * 0.4, imageHeight * 0.1),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
