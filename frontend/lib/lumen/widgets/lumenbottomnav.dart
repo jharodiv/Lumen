@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/lumen/screens/MainFeed/mainfeedScreen.dart';
 import 'package:frontend/lumen/screens/profileScreens/profileScreen.dart';
+import 'package:frontend/route/app_routes.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class LumenBottomnav extends StatelessWidget {
@@ -20,10 +21,7 @@ class LumenBottomnav extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Mainfeedscreen()));
+                  Navigator.pushReplacementNamed(context, AppRoutes.home);
                 },
                 child: const Icon(Icons.home, color: Colors.white),
               ),
@@ -40,8 +38,7 @@ class LumenBottomnav extends StatelessWidget {
               const Icon(Icons.notifications, color: Colors.white),
               InkWell(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ProfileScreen()));
+                  Navigator.pushReplacementNamed(context, AppRoutes.profile);
                 },
                 child: const Icon(Icons.person, color: Colors.white),
               )

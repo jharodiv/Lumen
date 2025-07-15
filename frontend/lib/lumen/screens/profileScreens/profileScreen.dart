@@ -6,6 +6,7 @@ import 'package:frontend/lumen/widgets/profileWidgets/profileInfo.dart';
 import 'package:frontend/lumen/widgets/profileWidgets/profilePhotoGrid.dart';
 import 'package:frontend/repositories/photoRepositories.dart';
 import 'package:frontend/repositories/tempoPhotoRepo.dart';
+import 'package:frontend/route/app_routes.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -41,7 +42,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pushReplacementNamed(context, AppRoutes.home);
           },
           icon: const Icon(Icons.arrow_back),
         ),
