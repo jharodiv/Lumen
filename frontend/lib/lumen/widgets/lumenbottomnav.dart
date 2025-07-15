@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/lumen/screens/MainFeed/mainfeedScreen.dart';
+import 'package:frontend/lumen/screens/profileScreens/profileScreen.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class LumenBottomnav extends StatelessWidget {
@@ -13,12 +15,20 @@ class LumenBottomnav extends StatelessWidget {
         child: Container(
           height: 70,
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Icon(Icons.home, color: Colors.white),
-              Icon(Icons.people_alt, color: Colors.white),
-              CircleAvatar(
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Mainfeedscreen()));
+                },
+                child: const Icon(Icons.home, color: Colors.white),
+              ),
+              const Icon(Icons.people_alt, color: Colors.white),
+              const CircleAvatar(
                 radius: 28,
                 backgroundColor: Color(0xFF339857),
                 child: Icon(
@@ -27,8 +37,14 @@ class LumenBottomnav extends StatelessWidget {
                   size: 30,
                 ),
               ),
-              Icon(Icons.notifications, color: Colors.white),
-              Icon(Icons.person, color: Colors.white),
+              const Icon(Icons.notifications, color: Colors.white),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ProfileScreen()));
+                },
+                child: const Icon(Icons.person, color: Colors.white),
+              )
             ],
           ),
         ),

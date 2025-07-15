@@ -24,6 +24,7 @@ class ProfileInfo extends StatelessWidget {
             Positioned(
               bottom: -MediaQuery.of(context).size.height * 0.06,
               left: 20,
+              right: 20,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -33,27 +34,29 @@ class ProfileInfo extends StatelessWidget {
                         AssetImage('assets/images/others/test1.jpg'),
                   ),
                   const SizedBox(width: 12),
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SizedBox(height: 16),
-                      Text(
-                        'Aiah Arceta',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.white,
+                  const Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(height: 16),
+                        Text(
+                          'Aiah Arceta',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      Text(
-                        '@biniaiah',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.white70,
+                        Text(
+                          '@biniaiah',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.white70,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   const SizedBox(width: 12),
                   ElevatedButton(
@@ -64,8 +67,10 @@ class ProfileInfo extends StatelessWidget {
                           fontWeight: FontWeight.bold, fontSize: 12.0),
                     ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF339857),
-                      minimumSize: Size(120, 25), //width,height
+                      backgroundColor: const Color(0xFF339857),
+                      minimumSize: const Size(80, 40), //Width, Height
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
                     ),
                   ),
                 ],

@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:frontend/lumen/screens/mylight/sharecodescreen.dart';
+import 'package:frontend/lumen/screens/profileScreens/profileScreen.dart';
 import 'package:frontend/lumen/screens/splashscreen.dart';
+import 'dart:async';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+void main() {
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+    runApp(MyApp());
+  }, (error, stack) {
+    print('Unhandled Error: $error');
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -72,7 +77,7 @@ class MyApp extends StatelessWidget {
           textSelectionTheme: const TextSelectionThemeData(
             cursorColor: Colors.white,
           )),
-      home: Splashscreen(),
+      home: const Splashscreen(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/lumen/screens/MainFeed/mainfeedScreen.dart';
 import 'package:frontend/lumen/screens/profileScreens/profileGrid.dart';
 import 'package:frontend/lumen/widgets/lumenbottomnav.dart';
 import 'package:frontend/lumen/widgets/profileWidgets/profileInfo.dart';
@@ -39,7 +40,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(Icons.arrow_back),
         ),
       ),
